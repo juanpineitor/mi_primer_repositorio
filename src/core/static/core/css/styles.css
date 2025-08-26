@@ -1,0 +1,251 @@
+/* styles.css */
+:root{
+  --bg:#f6f8fb;
+  --panel:#ffffff;
+  --ink:#35390f;
+  --muted:#5f6e83;
+  --brand:#234968;
+  --brand-strong:#4a1818;
+  --stroke:#e5eaf1;
+  --focus:#0aa2ff;      /* color de foco accesible */
+  --radius:18px;
+  --shadow:0 8px 24px rgba(15,35,57,0.08);
+  --titulo: #234968;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.5;
+}
+.visually-hidden{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+.container{width:min(1120px, 92%); margin-inline:auto}
+
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+}
+.skip-link:focus{
+  left:1rem; top:1rem; background:#fff; padding:.5rem .75rem;
+  border-radius:.5rem; z-index:999; outline:3px solid var(--focus);
+}
+
+/* Header */
+.site-header{
+  background:var(--brand);
+  color:#fff;
+  position:sticky; top:0; z-index:50;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.header-inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:1rem;
+  padding:.8rem 0;
+}
+.brand{
+display:flex;
+align-items:center;
+gap:.75rem;
+}
+
+
+
+
+.logo{width:36px;height:36px;border-radius:10px;background:#88a9c6 linear-gradient(145deg,#a3c0da,#6e8ca8)}
+
+
+.brand-name{
+font-weight:700; 
+letter-spacing:.2px;
+}
+
+.main-nav ul{
+list-style:none; 
+display:flex; 
+gap:1rem; margin:0; 
+padding:0; 
+justify-content:center;
+}
+
+
+
+.main-nav a{
+  color:#eaf2fb; text-decoration:none; padding:.5rem .75rem; border-radius:10px;
+}
+.main-nav a:hover{background:rgba(255,255,255,.12)}
+.main-nav a:focus-visible{
+  outline:3px solid var(--focus); outline-offset:3px; background:rgba(255,255,255,.12);
+}
+.main-nav a.active{background:rgba(255,255,255,.22); font-weight:600}
+
+.user-btn{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,255,255,.12);
+  border: 0;
+  color: #fff;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.user-btn:hover{background:rgba(255,255,255,.22)}
+.user-btn:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+.avatar{
+  display:inline-grid; place-items:center;
+  width:28px; height:28px; border-radius:50%;
+  background:#d6e3f0; color:#1d3c58; font-weight:700; font-size:.8rem;
+}
+.user-name{font-weight:600}
+
+/* Hero - ACA EN LA PARTE DE ARRIBA DONDE DICE GESTION INTEGRAL DE CALIBRACIONES */
+.hero{
+  background:linear-gradient(180deg, #f1f5fa 0%, #0b54c2 100%);
+  /* min-height: 50vh; */
+  /* background-image: url("../img/fondo_cali1.jpg"); */
+  background-size: cover;       /* ocupa todo el ancho/alto */
+  background-position: center;  /* centrada */
+  /* background-repeat: no-repeat; /* que no se repita */
+
+
+  padding: clamp(2.2rem, 2vw + 1rem, 3.2rem) 0 2.2rem;
+  border-bottom:1px solid var(--stroke);
+}
+
+
+
+
+.titulo-de-gestion {
+  font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
+  line-height: 1.15;
+  margin: 0 0 0.6rem 0;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la legibilidad */
+}
+
+
+.hero-inner{
+  max-width:1120px;
+  align-items: center;
+  justify-content: space-between; /* distribuye brand a la izq y user a la der */
+  gap: 1rem;
+}
+
+/* .hero h1{
+  font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
+  line-height:1.15; margin:0 0 .6rem 0; color:var(--brand-strong);
+} */
+
+.hero p{margin:0 0 1.2rem 0; color:var(--muted); font-size:clamp(1rem,.3vw + .95rem,1.1rem)}
+.hero-actions{display:flex; gap:.75rem; flex-wrap:wrap}
+
+.btn{
+  display:inline-block; text-decoration:none; font-weight:700;
+  padding:.85rem 1.05rem; border-radius:12px; transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  border:2px solid transparent;
+}
+.btn-primary{background:var(--brand); color:#fff; box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-primary:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+.btn-ghost{background:#fff; color:var(--brand); border-color:var(--stroke)}
+.btn-ghost:hover{border-color:#cdd6e2}
+.btn-ghost:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+
+/* Cards con SVG */
+.quick-section{padding:1.6rem 0 2.2rem}
+.cards-grid{display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem}
+.card{
+  background:var(--panel); border:1px solid var(--stroke); border-radius:var(--radius); padding:1rem;
+  text-decoration:none; color:inherit; box-shadow:var(--shadow);
+  display:grid; align-content:start; gap:.5rem;
+  transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover{transform:translateY(-2px); box-shadow:0 10px 28px rgba(15,35,57,0.12); border-color:#d6dfeb}
+.card:focus-visible{outline:4px solid var(--focus); outline-offset:3px}
+.icon{width:28px; height:28px; fill:var(--brand)}
+.card h3{margin:.2rem 0; font-size:1.05rem}
+.card p{margin:0; color:var(--muted); font-size:.95rem}
+
+/* Value section */
+.value{padding:1.6rem 0 2.6rem}
+.value-grid{display:grid; gap:1rem; grid-template-columns: repeat(3, 1fr)}
+.value-item{
+  background:var(--panel); border:1px solid var(--stroke); border-radius:var(--radius); padding:1.1rem 1rem; box-shadow:var(--shadow)
+}
+.value-item .icon{width:24px; height:24px; margin-bottom:.2rem}
+.value-item h4{margin:.2rem 0 .4rem 0}
+.value-item p{margin:0; color:var(--muted)}
+
+/* Footer */
+.site-footer{background:var(--brand); color:#dfeaf5; margin-top:1rem}
+.footer-inner{display:grid; grid-template-columns:1fr auto; gap:1rem; padding:1.2rem 0}
+.footer-left strong{display:block; margin-bottom:.4rem; color:#fff}
+.footer-left ul{list-style:none; margin:.2rem 0 0 0; padding:0; display:grid; gap:.25rem}
+.footer-left a{color:#eaf2fb; text-decoration:none}
+.footer-left a:hover{text-decoration:underline}
+.footer-left a:focus-visible{outline:3px solid var(--focus); outline-offset:3px}
+.footer-right p{margin:.2rem 0 0 0}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .cards-grid{grid-template-columns: repeat(2, 1fr)}
+}
+
+
+
+@media (max-width: 720px){
+  .header-inner {
+    grid-template-columns: auto 1fr auto; /* logo | nav crece | user */
+    row-gap: center;                  
+  }
+
+  .main-nav {
+    grid-column: 1 / -1; /* la nav ocupa todo el ancho */
+    order: 3;            /* se va debajo del resto */
+  }
+
+  .main-nav ul {
+    justify-content: flex-start; /* menú arranca alineado a la izq */
+    overflow: auto;              /* scroll horizontal si hay muchos ítems */
+    padding-bottom: .25rem;      /* espacio abajo para el scroll */
+  }
+
+  .user {
+    justify-self: end; /* bloque usuario pegado a la derecha */
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr; /* KPIs en una sola columna */
+  }
+}
+
+
+
+
+/* Preferencias del usuario */
+@media (prefers-reduced-motion: reduce){
+  .btn, .card{transition:none}
+}
+
+/* Alto contraste del sistema */
+@media (forced-colors: active){
+  .btn,.card,.main-nav a{border:1px solid ButtonText}
+  .btn:focus-visible,.card:focus-visible,.main-nav a:focus-visible{outline:2px solid Highlight}
+}
+
+.hero h1.titulo-de-gestion {
+  color: var(--titulo);
+  font-size: clamp(2.2rem, 3vw + 1rem, 3.8rem);
+  line-height: 1.15;
+  margin: 0 0 0.6rem 0;
+  text-shadow: 0 5px 10px rgb(85, 118, 163); /* Sombra para mejorar la legibilidad */
+}
+

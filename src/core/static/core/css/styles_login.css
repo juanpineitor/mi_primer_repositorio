@@ -1,0 +1,118 @@
+:root{
+  --bg:#f6f8fb;
+  --panel:#ffffff;
+  --ink:#0f2339;
+  --muted:#5f6e83;
+  --brand:#234968;
+  --brand-strong:#0a12a7;
+  --stroke:#e5eaf1;
+  --focus:#0aa2ff;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(15,35,57,.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Layout centrado */
+.login-wrap{
+  min-height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 24px;
+}
+
+/* Tarjeta */
+.login-card{
+  width:min(420px, 92vw);
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding: 28px 24px;
+}
+
+.login-title{
+  margin:0 0 .25rem 0;
+  font-size:1.6rem;
+  font-weight:800;
+  color:var(--brand-strong);
+}
+.login-subtitle{
+  margin:.1rem 0 1.25rem 0;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* Formulario */
+.login-form{display:grid; gap:1rem}
+.form-group{display:grid; gap:.4rem}
+
+label{font-size:.95rem; color:#26364a}
+input{
+  width:100%;
+  padding:.7rem .85rem;
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  font-size:1rem;
+  background:#fff;
+}
+input:focus{
+  outline:3px solid var(--focus);
+  outline-offset:1px;
+  border-color: var(--focus);
+}
+
+/* Errores */
+.alert{
+  margin:0 0 .8rem 0;
+  padding:.7rem .85rem;
+  border-radius:10px;
+  font-size:.95rem;
+}
+.alert-error{background:#ffe8e8; color:#8b1a1a; border:1px solid #f3b5b5}
+.field-error{color:#8b1a1a; font-size:.85rem}
+
+/* Botón */
+.btn-primary{
+  margin-top:.25rem;
+  display:inline-block;
+  width:100%;
+  padding:.85rem 1rem;
+  background:var(--brand);
+  color:#fff;
+  font-weight:700;
+  border:0;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .12s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 18px rgba(35,73,104,.25);
+}
+.btn-primary:hover{transform:translateY(-1px); background:var(--brand-strong)}
+.btn-primary:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+
+/* Meta */
+.login-meta{
+  margin:.9rem 0 0 0;
+  text-align:center;
+  font-size:.9rem;
+}
+.login-meta a{
+  color:var(--brand-strong);
+  text-decoration:none;
+}
+.login-meta a:hover{text-decoration:underline}
+
+/* Accesibilidad: alto contraste */
+@media (forced-colors: active){
+  input, .btn-primary{border:1px solid ButtonText}
+  .btn-primary:focus-visible{outline:2px solid Highlight}
+}

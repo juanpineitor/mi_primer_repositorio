@@ -1,0 +1,182 @@
+<!-- index.html -->
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'core/css/styles.css' %}?v=8">
+
+<!doctype html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calibraciones • Inicio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- Sprite SVG con íconos (definiciones ocultas) -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <!-- Reloj / Próximas -->
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <path d="M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17Zm0 1.8a6.7 6.7 0 1 0 0 13.4 6.7 6.7 0 0 0 0-13.4Zm.9 3.2a.9.9 0 1 0-1.8 0v4.3c0 .24.1.47.27.64l2.6 2.6a.9.9 0 1 0 1.27-1.27l-2.36-2.36V8.5Z" />
+      </symbol>
+      <!-- Documento / Certificados -->
+      <symbol id="icon-doc" viewBox="0 0 24 24">
+        <path d="M7.5 3.5h6.3c.24 0 .47.1.64.27l3.8 3.8c.17.17.27.4.27.64v11.3a1.3 1.3 0 0 1-1.3 1.3H7.5a1.3 1.3 0 0 1-1.3-1.3V4.8a1.3 1.3 0 0 1 1.3-1.3Zm6.1 1.8H7.7v14.1h8.6V8.1h-2.7c-.47 0-.86-.38-.86-.86V5.3Zm1.7 7.2H9.5a.9.9 0 1 0 0 1.8h5.8a.9.9 0 1 0 0-1.8Zm0 3.2H9.5a.9.9 0 1 0 0 1.8h5.8a.9.9 0 1 0 0-1.8Z"/>
+      </symbol>
+      <!-- Herramientas / Fuera de servicio -->
+      <symbol id="icon-tools" viewBox="0 0 24 24">
+        <path d="M14.2 3.7a4.1 4.1 0 0 0 4.9 5.4l-7.8 7.8a2 2 0 0 1-2.6.2l-2.1 2.1a1 1 0 0 1-1.4-1.4l2.1-2.1a2 2 0 0 1 .2-2.6l7.8-7.8a4.1 4.1 0 0 0-1.1-1.6Zm-6.6 9.1.9.9-3.4 3.4-.9-.9 3.4-3.4Z"/>
+      </symbol>
+      <!-- Check / Reportes -->
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="M12 2.8a9.2 9.2 0 1 1 0 18.4 9.2 9.2 0 0 1 0-18.4Zm4.3 6.8a1 1 0 0 0-1.5-1.3l-4.1 4.7-1.6-1.6a1 1 0 1 0-1.4 1.4l2.4 2.4c.4.4 1 .4 1.4 0l4.8-5.6Z"/>
+      </symbol>
+      <!-- Escudo / Cumplimiento -->
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 2.8c2.7 1.5 5.3 2.3 8 2.5v7c0 4.2-2.7 8-8 9.9-5.3-1.9-8-5.7-8-9.9v-7c2.7-.2 5.3-1 8-2.5Zm3.8 6.7a1 1 0 0 0-1.6-1.2l-3.1 4-1.2-1.2a1 1 0 0 0-1.4 1.4l2 2c.4.4 1 .4 1.4-.1l3.9-4.9Z"/>
+      </symbol>
+      <!-- Vínculos / Trazabilidad -->
+      <symbol id="icon-link" viewBox="0 0 24 24">
+        <path d="M8.5 7a3.5 3.5 0 0 1 5 0l1 1a1 1 0 1 1-1.4 1.4l-1-1a1.5 1.5 0 1 0-2.1 2.1l1 1a1 1 0 0 1-1.4 1.4l-1-1a3.5 3.5 0 0 1 0-5Zm6 6a3.5 3.5 0 0 1 0-5l1-1a3.5 3.5 0 0 1 5 5l-1 1a1 1 0 0 1-1.4-1.4l1-1a1.5 1.5 0 1 0-2.1-2.1l-1 1a1 1 0 0 1-1.4 1.4l-1 1Z"/>
+      </symbol>
+      <!-- Rayo / Eficiencia -->
+      <symbol id="icon-bolt" viewBox="0 0 24 24">
+        <path d="M12.7 2.7a.9.9 0 0 1 .8 1.2l-1.4 5h4.4a.9.9 0 0 1 .7 1.4l-6.5 9.9a.9.9 0 0 1-1.6-.7l1.4-5H6.2a.9.9 0 0 1-.7-1.4l6.5-9.9a.9.9 0 0 1 .7-.5Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span class="brand-name">CalibraSys</span>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#">Inicio copado </a></li>
+          <li><a href="#">Calibraciones</a></li>
+          <li><a href="#">Certificados</a></li>
+          <li><a href="#">Reportes</a></li>
+          <li><a href="#">Adminis`tración</a></li>
+          <li><a href="#">PIJA</a></li>
+        </ul>
+      </nav>
+
+      <!-- Boton de prueba para ver como quedosqui -->
+      <!-- <div class="user"> 
+        <button class="user-btn" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar" aria-hidden="true">JG</span>
+          <span class="user-name">Juanpi</span>
+        </button>
+      </div> -->
+
+
+      <!-- Usuario logueado -->
+      <!-- Este es el logo que dice quien esta logueado -->
+      <div class="user">
+      <button class="user-btn" aria-haspopup="menu" aria-expanded="false">
+        <span class="avatar" aria-hidden="true">
+          {{ user.username|first|upper }}{{ user.last_name|first|upper }}
+        </span>
+        <span class="user-name">
+          {{ user.get_full_name|default:user.username }}
+        </span>
+      </button>
+</div>
+
+
+  <!-- Este es el boton de cerrar sesion -->
+  <form method="post" action="{% url 'logout' %}" style="display:inline">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-ghost">Cerrar sesión</button>
+  </form>
+
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="titulo-de-gestion">Gestión integral de calibraciones</h1>
+        <p>Organizá, registrá y consultá todas las calibraciones de tus instrumentos en un solo lugar, con trazabilidad y cumplimiento normativo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#" role="button">Nueva calibración</a>
+          <a class="btn btn-ghost" href="#" role="button">Ver próximas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK CARDS -->
+    <section class="quick-section" aria-labelledby="accesos-rapidos">
+      <div class="container">
+        <h2 id="accesos-rapidos" class="visually-hidden">Accesos rápidos</h2>
+        <div class="cards-grid">
+          <a class="card" href="#" aria-label="Próximas calibraciones">
+            <svg class="icon" aria-hidden="true"><use href="#icon-clock" /></svg>
+            <h3>Próximas calibraciones</h3>
+            <p>Alertas y vencimientos de instrumentos.</p>
+          </a>
+
+          <a class="card" href="#" aria-label="Últimos certificados">
+            <svg class="icon" aria-hidden="true"><use href="#icon-doc" /></svg>
+            <h3>Últimos certificados</h3>
+            <p>Descargá y compartí los más recientes.</p>
+          </a>
+
+          <a class="card" href="#" aria-label="Instrumentos fuera de servicio">
+            <svg class="icon" aria-hidden="true"><use href="#icon-tools" /></svg>
+            <h3>Fuera de servicio</h3>
+            <p>Seguimiento y acciones correctivas.</p>
+          </a>
+
+          <a class="card" href="#" aria-label="Reportes rápidos">
+            <svg class="icon" aria-hidden="true"><use href="#icon-check" /></svg>
+            <h3>Reportes rápidos</h3>
+            <p>KPIs, auditorías y exportaciones.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE / BENEFITS -->
+    <section class="value" aria-labelledby="beneficios">
+      <div class="container value-grid">
+        <h2 id="beneficios" class="visually-hidden">Beneficios</h2>
+
+        <div class="value-item">
+          <svg class="icon" aria-hidden="true"><use href="#icon-link" /></svg>
+          <h4>Trazabilidad total</h4>
+          <p>Historial completo por instrumento, con auditoría de cambios.</p>
+        </div>
+
+        <div class="value-item">
+          <svg class="icon" aria-hidden="true"><use href="#icon-shield" /></svg>
+          <h4>Cumplimiento normativo</h4>
+          <p>Alineado a GMP, ISO/IEC 17025 y 21 CFR Part 11.</p>
+        </div>
+
+        <div class="value-item">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bolt" /></svg>
+          <h4>Eficiencia operativa</h4>
+          <p>Accesos rápidos, plantillas y automatizaciones.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <strong>Soporte</strong>
+        <ul>
+          <li><a href="#">Manual de usuario</a></li>
+          <li><a href="#">SOPs</a></li>
+          <li><a hre

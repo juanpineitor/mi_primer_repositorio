@@ -1,0 +1,19 @@
+# Entorno virtual
+.venv/
+
+# Configuración de VS Code (opcional, si no quieres compartirla)
+.vscode/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de entorno / secretos
+.env
+*.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
