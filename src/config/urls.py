@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 
 from core.views import home
+from data_admin.views import index as admin_index
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -58,4 +59,5 @@ urlpatterns = [
     ),
     # dashboard
     path("home/", home, name="home"),
+    path("admin-usuarios/", admin_index, name="admin_usuarios_index"),
 ]

@@ -1,0 +1,27 @@
+<!-- templates/admin/index.html -->
+
+{% extends 'data_admin/base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'data_admin/css/styles_index.css' %}">
+{% endblock %}
+
+{% block title %}Inicio de Administración{% endblock %}
+
+{% block content %}
+    <h2>Usuarios registrados</h2>
+    <ul>
+        {% for usuario in usuarios %}
+            <li>{{ usuario.username }} - {{ usuario.email }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+
+
+
+
+
